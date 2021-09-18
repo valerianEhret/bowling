@@ -1,3 +1,4 @@
+
 class BowlingGame {
   constructor() {
 
@@ -9,3 +10,5 @@ class BowlingGame {
 
   }
 }
+
+module.exports = BowlingGame;
