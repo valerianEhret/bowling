@@ -22,6 +22,16 @@ describe('Bowling Game tests', () => {
     expect(game.score).toEqual(20);
   });
 
+  test('should return the correct score when a spare is rolled', () => {
+
+    game.roll(5);
+    game.roll(5);
+    game.roll(1);
+    rollMany(17, 0);
+
+    expect(game.score).toEqual(20);
+  });
+
   function rollMany(times, pinsDown) {
     for (let i = 0; i < times; i++) {
       game.roll(pinsDown);
