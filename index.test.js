@@ -19,7 +19,7 @@ describe('Bowling Game tests', () => {
 
     rollMany(20, 1)
 
-    expect(game.score).toEqual(1);
+    expect(game.score).toEqual(20);
   });
 
   function rollMany(times, pinsDown) {
