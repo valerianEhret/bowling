@@ -1,13 +1,20 @@
 
 class BowlingGame {
   constructor() {
-    this.rolls;
+    this.rolls = [];
   }
 
-  roll(...rolls) {
-
-    this.rolls = [...rolls];
-
+  roll(scoreCard) {
+    for (let i = 0; i < scoreCard.length; i++) {
+      if (scoreCard[i] === ' ') {
+      } else if (scoreCard[i] === '-') {
+        this.rolls.push(0);
+      } else if (scoreCard[i] === '/') {
+        this.rolls.push(10 - +scoreCard[i - 1]);
+      } else {
+        this.rolls.push(+scoreCard[i]);
+      }
+    }
   }
 
   get score() {

@@ -10,21 +10,24 @@ describe('Bowling Game tests', () => {
 
   test('should return 0 for a game of all zeros', () => {
 
-    game.roll(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    const scoreCard = '-- -- -- -- -- -- -- -- -- --';
+    game.roll(scoreCard);
 
     expect(game.score).toEqual(0);
   });
 
   test('should return 20 for a game of all ones', () => {
 
-    game.roll(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+    const scoreCard = '11 11 11 11 11 11 11 11 11 11';
+    game.roll(scoreCard);
 
     expect(game.score).toEqual(20);
   });
 
   test('should return the correct score when a spare is rolled', () => {
 
-    game.roll(5, 5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    const scoreCard = '5/ 1- -- -- -- -- -- -- -- --';
+    game.roll(scoreCard);
 
     expect(game.score).toEqual(12);
   });
