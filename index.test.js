@@ -1,12 +1,34 @@
+const { beforeEach } = require('@jest/globals');
 const BowlingGame = require('./index');
 
-test('should return 0 for a game of all zeros', () => {
+describe('Bowling Game tests', () => {
 
-  game = new BowlingGame();
+  let game;
+  beforeEach(() => {
+    game = new BowlingGame();
+  });
 
-  for (let i = 0; i < 20; i++) {
-    game.roll(0);
+  test('should return 0 for a game of all zeros', () => {
+
+    rollMany(20, 0)
+
+    expect(game.score).toEqual(0);
+  });
+
+  test('should return 20 for a game of all ones', () => {
+
+    rollMany(20, 1)
+
+    expect(game.score).toEqual(1);
+  });
+
+  function rollMany(times, pinsDown) {
+    for (let i = 0; i < times; i++) {
+      game.roll(pinsDown);
+    }
   }
 
-  expect(game.score).toEqual(0);
 });
+
+
+
