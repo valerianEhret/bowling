@@ -29,7 +29,7 @@ describe('Bowling Game tests', () => {
     game.roll(1);
     rollMany(17, 0);
 
-    expect(game.score).toEqual(20);
+    expect(game.score).toEqual(12);
   });
 
   function rollMany(times, pinsDown) {
