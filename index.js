@@ -7,6 +7,8 @@ class BowlingGame {
   roll(scoreCard) {
     for (let i = 0; i < scoreCard.length; i++) {
       if (scoreCard[i] === ' ') {
+      } else if (scoreCard[i] === 'X') {
+        this.rolls.push(10);
       } else if (scoreCard[i] === '-') {
         this.rolls.push(0);
       } else if (scoreCard[i] === '/') {
@@ -24,15 +26,27 @@ class BowlingGame {
     for (let frameIndex = 0; frameIndex < 10; frameIndex++) {
       const frameScore = this.rolls[rollIndex] + this.rolls[rollIndex + 1];
 
-      if (this._isSpare(frameScore)) {
+      if (this._isStrike(rollIndex)) {
+        score += this._strikeBonus(rollIndex);
+        rollIndex ++;
+        continue;
+      }
+      else if (this._isSpare(frameScore)) {
         score += this._spareBonus(rollIndex);
-
-      } else {
+      }
+      else {
         score += frameScore;
       }
       rollIndex += 2;
     }
     return score;
+  }
+
+  _isStrike(rollIndex) {
+    return this.rolls[rollIndex] === 10;
+  }
+  _strikeBonus(rollIndex) {
+    return 10 + this.rolls[rollIndex+1] + this.rolls[rollIndex+2];
   }
 
   _isSpare(frameScore) {
