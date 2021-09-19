@@ -39,6 +39,22 @@ describe('Bowling Game tests', () => {
 
     expect(game.score).toEqual(14);
   });
+
+  test('should return the correct score for a game of all spares', () => {
+
+    const scoreCard = '5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5';
+    game.roll(scoreCard);
+
+    expect(game.score).toEqual(150);
+  });
+
+  test('should return the correct score for a game of all strikes', () => {
+
+    const scoreCard = 'X X X X X X X X X X X X';
+    game.roll(scoreCard);
+
+    expect(game.score).toEqual(300);
+  });
 });
 
 
