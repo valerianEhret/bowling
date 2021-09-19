@@ -1,8 +1,17 @@
-# Bowling Game Kata 
+# Bowling Game
 
-from http://codingdojo.org/kata/Bowling/
+Solving the Bowling Game kata from http://codingdojo.org/kata/Bowling/
 
-## Scroring a Bowling Game
+## Kata Description 
+Create a program, which, given a valid sequence of rolls for one line of American Ten-Pin Bowling, produces the total score for the game. Here are some things that the program will not do:
+
+We will not check for valid rolls.
+We will not check for correct number of rolls and frames.
+We will not provide scores for intermediate frames.
+Depending on the application, this might or might not be a valid way to define a complete story, but we do it here for purposes of keeping the kata light. I think you’ll see that improvements like those above would go in readily if they were needed for real.
+
+
+## Scoring in the Bowling Game
 - Each game, or “line” of bowling, includes ten turns, or “frames” for the bowler.
 - In each frame, the bowler gets up to two tries to knock down all the pins.
 - If in two tries, he fails to knock them all down, his score for that frame is the total number of pins knocked down in his two tries.
@@ -15,3 +24,14 @@ from http://codingdojo.org/kata/Bowling/
 - X X X X X X X X X X X X (12 rolls: 12 strikes) = 10 frames * 30 points = 300
 - 9- 9- 9- 9- 9- 9- 9- 9- 9- 9- (20 rolls: 10 pairs of 9 and miss) = 10 frames * 9 points = 90
 - 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5 (21 rolls: 10 pairs of 5 and spare, with a final 5) = 10 frames * 15 points = 150
+
+## Implementation
+Code written in Javascript
+- A Class called BowlingGame.
+- Methods `roll` and `score`
+
+## Running the tests
+`npm test`
+
+## Installation
+`npm install`
