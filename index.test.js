@@ -31,6 +31,14 @@ describe('Bowling Game tests', () => {
 
     expect(game.score).toEqual(12);
   });
+
+  test('should return the correct score when a strike is rolled', () => {
+
+    const scoreCard = 'X 11 -- -- -- -- -- -- -- --';
+    game.roll(scoreCard);
+
+    expect(game.score).toEqual(14);
+  });
 });
 
 
